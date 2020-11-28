@@ -16,3 +16,8 @@ a = np.array([1.1, 3.3, 5.5])
 b = cmake_example.mul_by_10(a)
 print(b)
 print(type(b))
+
+
+x = np.arange(1, 9, dtype=np.int8).reshape(4, 2)
+y = cmake_example.square(x)
+print(y)

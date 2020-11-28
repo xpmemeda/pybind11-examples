@@ -3,6 +3,8 @@
 #include <vector>
 #include <assert.h>
 
+#include "numpy_help.h"
+
 int add(int i, int j) {
     return i + j;
 }
@@ -53,4 +55,5 @@ PYBIND11_MODULE(cmake_example, m) {
     m.def("sub", [](int i, int j) { return i - j; }, "A function which subtract two numbers");
     m.def("add_vector", &add_vector);
     m.def("mul_by_10", &py_mul_by_10);
+    m.def("square", &py_square);
 }
