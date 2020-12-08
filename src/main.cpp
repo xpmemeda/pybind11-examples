@@ -3,7 +3,9 @@
 #include <vector>
 #include <assert.h>
 
-#include "numpy_help.h"
+#include "numpy_functions.h"
+#include "custom_class.h"
+
 
 int add(int i, int j) {
     return i + j;
@@ -49,11 +51,22 @@ py::array_t<int> py_mul_by_10(py::array_t<double, py::array::c_style | py::array
     return result;
 }
 
-PYBIND11_MODULE(cmake_example, m) {
-    m.doc() = "pybind11 cmake example";
+PYBIND11_MODULE(example, m) {
+    m.doc() = "pybind11 and cmake example";
     m.def("add", &add, "A function which adds two numbers");
     m.def("sub", [](int i, int j) { return i - j; }, "A function which subtract two numbers");
     m.def("add_vector", &add_vector);
     m.def("mul_by_10", &py_mul_by_10);
     m.def("square", &py_square);
+    py::class_<Pet>(m, "Pet")
+        .def(py::init<const std::string&>())
+        .def("setName", &Pet::setName)
+        .def("getName", &Pet::getName)
+        .def_property("name", &Pet::getName, &Pet::setName)
+        .def_readwrite("public_name", &Pet::public_name)
+        .def("__repr__",
+            [](const Pet& a) {
+                return "<example.Pet public named '" + a.public_name + "'>";
+            }
+        );
 }

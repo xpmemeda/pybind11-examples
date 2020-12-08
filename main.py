@@ -1,9 +1,9 @@
 import numpy as np
-import cmake_example
+import example
 
 
-a = cmake_example.add(1, 2)
-b = cmake_example.sub(1, 3)
+a = example.add(1, 2)
+b = example.sub(1, 3)
 print("add: %d\nsub: %d" %(a, b))
 
 a = [1, 2, 3]
@@ -13,11 +13,30 @@ print(c)
 print(type(c))
 
 a = np.array([1.1, 3.3, 5.5])
-b = cmake_example.mul_by_10(a)
+b = example.mul_by_10(a)
 print(b)
 print(type(b))
 
 
 x = np.arange(1, 9, dtype=np.int8).reshape(4, 2)
-y = cmake_example.square(x)
+y = example.square(x)
 print(y)
+
+
+pet = example.Pet("Laifu")
+
+print(pet)
+
+print("name %s" % pet.name)
+pet.name = "Wangcai"
+print("rename")
+print("name %s" % pet.name)
+
+print("-" * 20)
+
+print("public name %s" % pet.public_name)
+pet.public_name = "Wangcai"
+print("rename public name")
+print("public name %s" % pet.public_name)
+
+print(example.Pet)
