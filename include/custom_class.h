@@ -1,4 +1,9 @@
+#ifndef _CUSTOM_CLASS_H_
+#define _CUSTOM_CLASS_H_
+
+
 #include <string>
+#include <pybind11/pybind11.h>
 
 
 struct Pet {
@@ -9,3 +14,13 @@ struct Pet {
   private:
     std::string _name;
 };
+
+struct Dog : Pet {
+    Dog(const std::string& name);
+    std::string bark();
+};
+
+
+void init_custom_class(pybind11::module m);
+
+#endif

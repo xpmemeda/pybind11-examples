@@ -3,7 +3,9 @@ project(example)
 
 add_subdirectory(pybind11)
 
-pybind11_add_module(${PROJECT_NAME} src/main.cpp src/numpy_functions.cpp src/custom_class.cpp)
+aux_source_directory(src/ SRCS)
+
+pybind11_add_module(${PROJECT_NAME} ${SRCS})
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/include)
 

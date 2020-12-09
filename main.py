@@ -19,11 +19,11 @@ print(type(b))
 
 
 x = np.arange(1, 9, dtype=np.int8).reshape(4, 2)
-y = example.square(x)
+y = example.numpy_functions.square(x)
 print(y)
 
 
-pet = example.Pet("Laifu")
+pet = example.custom_class.Pet("Laifu")
 
 print(pet)
 
@@ -39,4 +39,11 @@ pet.public_name = "Wangcai"
 print("rename public name")
 print("public name %s" % pet.public_name)
 
-print(example.Pet)
+print(example.custom_class.Pet)
+
+print(example.custom_class.Dot)
+dog = example.custom_class.Dot("laifu")
+print(isinstance(dog, example.custom_class.Pet))
+
+dog = example.custom_class.get_dog("laimao")
+print(dog.name)

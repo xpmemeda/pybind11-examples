@@ -1,6 +1,3 @@
-#ifndef _NUMPY_FUNCTIONS_H_
-#define _NUMPY_FUNCTIONS_H_
-
 #include <pybind11/pybind11.h>
 #include <pybind11/numpy.h>
 #include <vector>
@@ -41,5 +38,6 @@ py::array py_square(py::array_t<int> array) {
     ));
 }
 
-
-#endif
+void init_numpy_functions(py::module m) {
+    m.def("square", &py_square);
+}
