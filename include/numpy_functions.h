@@ -6,10 +6,6 @@
 #include <vector>
 
 
-std::vector<int> square(const std::vector<int>& intput);
-pybind11::array py_square(pybind11::array_t<int> array);
-
-
 void init_numpy_functions(pybind11::module m);
 
 #endif
