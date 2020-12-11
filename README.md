@@ -1,10 +1,9 @@
-# cmake example
+# pybind11 examples
 
-学习cmake和pybind11。
+用于学习pybind11。
 
 ## 初始化子模块
 
 ```bash
-git submodule init
 git submodule update --init --recursive
 ```
