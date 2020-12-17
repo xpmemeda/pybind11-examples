@@ -34,7 +34,7 @@ py::module submodule(py::module parent, const char* name, const char* doc) {
 }
 
 
-PYBIND11_MODULE(example, m) {
+PYBIND11_MODULE(_c, m) {
     m.attr("__name__") = "example";
     m.attr("__package__") = m.attr("__name__");
     m.doc() = "pybind11 and cmake example";
